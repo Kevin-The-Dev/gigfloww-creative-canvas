@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { CustomButton } from './ui/custom-button';
 import { Menu, X, ChevronDown, Code, Paintbrush, Megaphone } from 'lucide-react';
@@ -39,16 +38,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update navbar style based on scroll position
       setIsScrolled(window.scrollY > 10);
-      
-      // Update active section based on scroll position
       const sections = document.querySelectorAll('section[id]');
-      
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
         const sectionId = section.getAttribute('id');
-        
         if (sectionTop < 100 && sectionTop >= -100 && sectionId) {
           setActiveSection(sectionId);
         }
@@ -67,13 +61,11 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
         <a href="#" className="text-2xl font-bold">
           <span className="text-gigflow-purple">Gig</span>
           <span className="text-gigflow-accent-purple">Floww</span>
         </a>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
             {navLinks.map((link) => (
@@ -82,9 +74,15 @@ const Navbar = () => {
                   <div className="flex items-center justify-center">
                     <button 
                       onClick={() => toggleDropdown(link.name)}
+                      style={{
+                        position: 'relative',
+                        paddingLeft: '0.75rem',
+                        paddingRight: '0.75rem',
+                        '--tw-text-opacity': '1' as any
+                      }}
                       className={cn(
-                        "nav-link flex items-center gap-1",
-                        activeSection === link.href.slice(1) ? "active" : ""
+                        "flex items-center gap-1",
+                        activeSection === link.href.slice(1) ? "text-gigflow-purple" : "text-gray-900"
                       )}
                     >
                       {link.name}
@@ -118,9 +116,14 @@ const Navbar = () => {
                 ) : (
                   <a 
                     href={link.href} 
+                    style={{
+                      position: 'relative',
+                      paddingLeft: '0.75rem',
+                      paddingRight: '0.75rem',
+                      '--tw-text-opacity': '1' as any
+                    }}
                     className={cn(
-                      "nav-link",
-                      activeSection === link.href.slice(1) ? "active" : ""
+                      activeSection === link.href.slice(1) ? "text-gigflow-purple" : "text-gray-900"
                     )}
                   >
                     {link.name}
@@ -132,7 +135,6 @@ const Navbar = () => {
           <CustomButton variant="primary" size="sm">Join Now</CustomButton>
         </div>
 
-        {/* Mobile Menu Button */}
         <button 
           onClick={toggleMenu} 
           className="md:hidden text-gray-700 p-2"
@@ -142,7 +144,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg animate-fade-in">
           <div className="container mx-auto px-4 py-4">

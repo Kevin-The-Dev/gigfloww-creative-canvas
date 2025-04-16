@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -174,10 +177,13 @@
   }
 
   .nav-link {
+    
     @apply px-3 py-2 text-gray-700 hover:text-gigflow-purple relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-gigflow-purple after:transition-all after:duration-300;
+    
   }
 
   .nav-link.active {
+    
     @apply text-gigflow-purple after:w-full;
   }
 }
@@ -193,4 +199,13 @@
 
 .float-animation {
   animation: float 4s ease-in-out infinite;
+}
+
+.nav-link {
+  position: relative;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: -0.5rem;
+    padding-bottom: -0.5rem;
+  --tw-text-opacity: 1;
 }
