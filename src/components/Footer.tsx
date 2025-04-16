@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CustomButton } from './ui/custom-button';
 import { Instagram, Twitter, Linkedin, Facebook, Github } from 'lucide-react';
@@ -76,13 +75,21 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-8 mt-8 text-center md:flex md:justify-between md:text-left">
-          <p className="text-gray-500">© {new Date().getFullYear()} GigFloww. All rights reserved.</p>
-          <div className="mt-4 md:mt-0">
-            <ul className="flex flex-wrap justify-center md:justify-end space-x-6">
-              <li><a href="#" className="text-gray-500 hover:text-gray-400 text-sm">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-500 hover:text-gray-400 text-sm">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-500 hover:text-gray-400 text-sm">Cookies</a></li>
-            </ul>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full">
+            <p className="text-gray-500 mb-4 md:mb-0">
+              © {new Date().getFullYear()} GigFloww. All rights reserved.
+            </p>
+            <p className="text-gray-500">
+              Website developed by{' '}
+              <a 
+                href="https://kevinpatel.me" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gigflow-purple hover:text-gigflow-accent-purple transition-colors font-semibold"
+              >
+                Kevin Patel
+              </a>
+            </p>
           </div>
         </div>
       </div>
