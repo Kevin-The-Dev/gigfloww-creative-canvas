@@ -79,7 +79,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <li key={link.name} className="relative group">
                 {link.dropdown ? (
-                  <div>
+                  <div className="flex items-center justify-center">
                     <button 
                       onClick={() => toggleDropdown(link.name)}
                       className={cn(

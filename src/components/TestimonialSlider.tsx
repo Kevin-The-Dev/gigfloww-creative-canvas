@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Testimonial data structure
@@ -130,9 +130,9 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gigflow-pastel-purple">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-gigflow-pastel-purple to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Users Say</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Hear from creative professionals who have found success on our platform
@@ -140,7 +140,7 @@ const TestimonialSlider = () => {
         </div>
         
         <div 
-          className="relative max-w-5xl mx-auto"
+          className="relative max-w-6xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           ref={sliderRef}
@@ -148,77 +148,73 @@ const TestimonialSlider = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="overflow-hidden">
-            <div 
-              className="relative h-[400px] md:h-[300px]"
-            >
-              {/* Testimonial Cards */}
-              {testimonialData.map((testimonial, index) => (
-                <div 
-                  key={testimonial.id}
-                  className={cn(
-                    "testimonial-card absolute top-0 left-0 right-0 transition-all duration-500 h-full",
-                    index === activeIndex ? "opacity-100 translate-x-0" : 
-                    index < activeIndex ? "opacity-0 -translate-x-full" : "opacity-0 translate-x-full"
-                  )}
-                >
-                  <div className="flex flex-col md:flex-row gap-6 h-full">
-                    <div className="flex flex-col items-center md:items-start">
-                      <div className="w-20 h-20 rounded-full overflow-hidden mb-3">
-                        <img 
-                          src={testimonial.avatar} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover" 
-                        />
-                      </div>
-                      
-                      <div className="flex mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={cn(
-                              "w-4 h-4",
-                              i < testimonial.rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
-                            )} 
-                          />
-                        ))}
-                      </div>
-                      
-                      <span className="inline-block bg-gigflow-purple px-3 py-1 rounded-full text-xs text-white font-medium mb-3">
-                        {testimonial.expertise}
-                      </span>
-                    </div>
-                    
-                    <div className="flex flex-col flex-1">
-                      <p className="text-gray-700 italic mb-6 text-lg flex-1">"{testimonial.quote}"</p>
-                      
-                      <div>
-                        <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                        <p className="text-gray-600">{testimonial.role}, {testimonial.company}</p>
-                      </div>
-                    </div>
-                  </div>
+          {/* Modern Card Layout */}
+          <div className="overflow-hidden rounded-2xl shadow-xl bg-white">
+            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[300px]">
+              {/* Testimonial Content */}
+              <div className="md:col-span-8 p-8 md:p-10 flex flex-col justify-center">
+                <div className="mb-6">
+                  <Quote className="text-gigflow-purple w-12 h-12 opacity-20 mb-2" />
+                  <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-light animate-fade-in">
+                    "{testimonialData[activeIndex].quote}"
+                  </p>
                 </div>
-              ))}
+                
+                <div className="mt-auto">
+                  <div className="flex mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={cn(
+                          "w-4 h-4",
+                          i < testimonialData[activeIndex].rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
+                        )} 
+                      />
+                    ))}
+                  </div>
+                  
+                  <h4 className="font-bold text-lg">{testimonialData[activeIndex].name}</h4>
+                  <p className="text-gray-600">
+                    {testimonialData[activeIndex].role}, {testimonialData[activeIndex].company}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Image Section */}
+              <div className="md:col-span-4 bg-gigflow-purple relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gigflow-purple/90 to-gigflow-accent-purple/70 z-10"></div>
+                <img 
+                  src={testimonialData[activeIndex].avatar} 
+                  alt={testimonialData[activeIndex].name}
+                  className="w-full h-full object-cover opacity-80 mix-blend-overlay" 
+                />
+                <div className="absolute bottom-6 left-6 z-20">
+                  <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white font-medium">
+                    {testimonialData[activeIndex].expertise}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
           
           {/* Navigation Arrows */}
-          <button 
-            onClick={prevSlide}
-            className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 md:-translate-x-6 bg-white p-3 rounded-full shadow-md hover:bg-gigflow-pastel-purple transition-colors z-10"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
-          </button>
-          
-          <button 
-            onClick={nextSlide}
-            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 md:translate-x-6 bg-white p-3 rounded-full shadow-md hover:bg-gigflow-pastel-purple transition-colors z-10"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
-          </button>
+          <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-4 z-20">
+            <button 
+              onClick={prevSlide}
+              className="bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-md hover:bg-white transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-700" />
+            </button>
+            
+            <button 
+              onClick={nextSlide}
+              className="bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-md hover:bg-white transition-colors"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-700" />
+            </button>
+          </div>
           
           {/* Pagination Dots */}
           <div className="flex justify-center mt-8 gap-2">

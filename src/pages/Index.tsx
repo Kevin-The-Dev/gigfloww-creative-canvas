@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -29,6 +30,36 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick);
     return () => document.removeEventListener('click', handleAnchorClick);
+  }, []);
+
+  // Add animation on scroll effect
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => {
+      el.classList.remove('animate-fade-in');
+      observer.observe(el);
+    });
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
   }, []);
   
   return (
