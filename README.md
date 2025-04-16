@@ -78,7 +78,7 @@ src/
 ### Installation
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone git@github.com:Kevin-The-Dev/gigfloww-creative-canvas.git
 
 # Install dependencies
 npm install
@@ -105,5 +105,3 @@ Interested in contributing? Check our contribution guidelines.
 Kevin Patel
 Portfolio: https://kevinpatel.me
 
-## 📄 License
-[Add your license information]
