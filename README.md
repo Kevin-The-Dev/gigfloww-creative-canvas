@@ -1,73 +1,109 @@
-# Welcome to your Lovable project
 
-## Project info
+# GigFloww: Creative Professionals Gig Platform
 
-**URL**: https://lovable.dev/projects/97239eb2-4f75-4ec7-8e29-1ca68b7ff45a
+## Project Overview
 
-## How can I edit this code?
+GigFloww is a modern web application designed to connect creative professionals with exciting gig opportunities across various domains including development, design, and marketing.
 
-There are several ways of editing your application.
+## 🚀 Key Features
 
-**Use Lovable**
+### Platform Capabilities
+- Smart Gig Matching: AI-powered project recommendations
+- Verified Client Network
+- Secure Payment System
+- Flexible Scheduling
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/97239eb2-4f75-4ec7-8e29-1ca68b7ff45a) and start prompting.
+### Service Categories
+- Development Services
+  - Web & Mobile Development
+  - Backend & API Development
+  - Game & AR/VR Development
+  - AI & Machine Learning
 
-Changes made via Lovable will be committed automatically to this repo.
+- Design Services
+  - UI/UX & Product Design
+  - Graphic & Brand Design
+  - Motion & 3D Design
+  - Illustration & Visual Art
 
-**Use your preferred IDE**
+- Marketing Services
+  - Content & Social Media
+  - SEO & SEM Campaigns
+  - Email & Video Marketing
+  - Growth & Acquisition Strategies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend
+- React (v18.3.1)
+- TypeScript
+- Tailwind CSS
+- Vite
 
-Follow these steps:
+### UI Components
+- shadcn/ui
+- Radix UI
+- Lucide React Icons
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### State Management & Data Fetching
+- Tanstack React Query (v5.56.2)
+- React Hook Form
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Animation & Interactions
+- Tailwind CSS Animations
+- Framer Motion (implied by custom animation classes)
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🔧 Project Structure
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```
+src/
+├── components/
+│   ├── ui/           # Reusable UI components
+│   ├── Hero.tsx      # Landing page hero section
+│   ├── About.tsx     # Platform features section
+│   ├── Navbar.tsx    # Site navigation
+│   └── Features.tsx  # Service categories
+├── pages/
+│   └── Index.tsx     # Main landing page
+└── lib/
+    └── utils.ts      # Utility functions
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+)
+- npm or Bun
+
+### Installation
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Deployment
+Easily deploy through Lovable platform:
+1. Open Lovable project
+2. Navigate to Share > Publish
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔒 Security & Performance
+- Client verification process
+- Secure payment escrow system
+- Responsive design
+- Optimized performance
 
-**Use GitHub Codespaces**
+## 🤝 Contributing
+Interested in contributing? Check our contribution guidelines.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📞 Contact
+Kevin Patel
+Portfolio: https://kevinpatel.me
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/97239eb2-4f75-4ec7-8e29-1ca68b7ff45a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📄 License
+[Add your license information]
