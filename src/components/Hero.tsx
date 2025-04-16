@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { CustomButton } from './ui/custom-button';
-import { ArrowRight, MousePointer, Users } from 'lucide-react';
+import { ArrowRight, MousePointer } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -38,26 +38,6 @@ const Hero = () => {
               </CustomButton>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 pt-6 animate-fade-in bg-white/50 backdrop-blur-sm rounded-xl p-4 shadow-sm border border-white/50" style={{ animationDelay: '0.6s' }}>
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((item) => (
-                  <div key={item} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden transition-transform hover:scale-110 hover:z-10">
-                    <img 
-                      src={`https://randomuser.me/api/portraits/men/${item + 10}.jpg`} 
-                      alt="User avatar" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center">
-                <Users className="w-5 h-5 text-gigflow-purple mr-2" />
-                <p className="font-medium">
-                  <span className="font-bold text-gigflow-purple">10k+</span> creative professionals joined
-                </p>
-              </div>
-            </div>
-            
             <div className="animate-fade-in hidden lg:flex items-center gap-2 text-sm text-gray-500" style={{ animationDelay: '0.8s' }}>
               <MousePointer className="w-4 h-4 animate-bounce" />
               <span>Scroll down to learn more</span>
@@ -76,13 +56,6 @@ const Hero = () => {
                 className="rounded-xl shadow-xl max-w-full object-cover relative z-10 border-8 border-white animate-fade-in hover-scale"
                 style={{ animationDelay: '0.4s' }}
               />
-              
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-lg p-3 shadow-lg animate-fade-in z-20" style={{ animationDelay: '0.7s' }}>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">500+ active gigs now</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
